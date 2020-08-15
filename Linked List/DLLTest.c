@@ -4,9 +4,9 @@
 
 struct node  {
     int key;
-	int data;
-	struct node* next;
-	struct node* prev;
+    int data;
+    struct node* next;
+    struct node* prev;
 };
 
 struct node* head = NULL;
