@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-struct node  {
+struct node{
     int key;
     int data;
     struct node* next;
@@ -13,12 +13,12 @@ struct node* head = NULL;
 struct node* tail = NULL;
 struct node* current = NULL;
 
-//returns whether list is empty
+//Returns whether list is empty
 bool isEmpty(){
     return head == NULL;
 }
 
-//returns length of linked list
+//Returns length of linked list
 int length() {
     int length = 0;
     struct node *current;
@@ -28,6 +28,7 @@ int length() {
     return length;
 }
 
+//Constructs newNode
 struct node* GetNewNode(int key, int data) {
 	struct node* newNode = (struct node*)malloc(sizeof(struct node));
     newNode->key = key;

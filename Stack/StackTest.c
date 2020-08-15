@@ -2,13 +2,14 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-typedef struct stack
+typedef struct stack 
 {
-    int capacity;
-    int top;
-    int *items;
+    int capacity; //keeps track of stack capacity
+    int top; //keeps track of top index of stack
+    int *items; //items for stack to hold
 } stack;
 
+//Creates stack
 stack *newStack (int capacity){
     stack *s = (stack *)malloc(sizeof(stack));
     s->top = 0;
@@ -17,23 +18,28 @@ stack *newStack (int capacity){
     return s;
 }
 
+//Deletes stack
 void delete(stack *s) {
     free(s);
     return;
 }
 
+//Returns if stack is empty
 bool isEmpty(stack *s) {
     return s->top == 0; 
 }
 
+//Returns if stack is full
 bool isFull(stack *s){
     return s->top == s->capacity;
 }
 
+//Returns size of stack
 int size(stack *s) {
     return s->top;
 }
 
+//Push item onto stack
 void push(stack *s, int item) {
     if (isFull(s)){
         printf("Stack Overflow!\n");
@@ -45,6 +51,7 @@ void push(stack *s, int item) {
     return;
 }
 
+//See the item at the top of the stack
 int peek(stack *s){
     int temp = s->top;
     if (isEmpty(s)){
@@ -55,6 +62,7 @@ int peek(stack *s){
     }
 }
 
+//Pop item off stack
 int pop(stack *s) {
     if (isEmpty(s)) {
         printf("Stack Underflow!\n");
@@ -65,6 +73,7 @@ int pop(stack *s) {
     return s->items[s->top];
 }
 
+//Print stack
 void printStack(stack *s) { // Goes through stack and prints out items
     if (isEmpty(s)) {
         printf("Stack is empty!\n");

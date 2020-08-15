@@ -9,6 +9,7 @@ typedef struct Queue
     int* array;
 } Queue;
 
+//Creates Queue
 Queue* createQueue(unsigned capacity) 
 { 
     Queue* q = (Queue*)malloc(sizeof(Queue)); 
@@ -19,14 +20,17 @@ Queue* createQueue(unsigned capacity)
     return q; 
 }
 
+//Checks is queue is full
 bool isFull(Queue *q){
     return q->size == q->capacity;
 }
 
+//Checks is queue is empty
 bool isEmpty(Queue *q){
     return q->size == 0;
 }
 
+//Returns value in the front of queue
 int peek(Queue *q){
     if (isEmpty(q)){
         printf("Queue is empty!\n");
@@ -34,6 +38,7 @@ int peek(Queue *q){
     return q->array[q->front];
 }
 
+//Returns value at back of queue
 int back(Queue *q){
         if (isEmpty(q)){
         printf("Queue is empty!\n");
@@ -41,6 +46,7 @@ int back(Queue *q){
     return q->array[q->back];
 }
 
+//Adds an item to back of queue
 void enqueue(Queue *q, int item){
     if (isFull(q)){
         q->capacity *= 2;
@@ -52,6 +58,7 @@ void enqueue(Queue *q, int item){
     printf("%d has been enqueued successfully\n", item);
 }
 
+//Returns item in front of queue
 int dequeue(Queue *q){
     if (isEmpty(q)){
         printf("Queue is empty!\n");

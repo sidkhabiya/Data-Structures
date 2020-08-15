@@ -8,12 +8,14 @@ typedef struct {
   size_t size;
 } Array;
 
+//Initializes array with specific size from user
 void initArray(Array *a, size_t initialSize) {
   a->array = malloc(initialSize * sizeof(int));
   a->used = 0;
   a->size = initialSize;
 }
 
+//Inserts elements into array and increases size if needed
 void insertArray(Array *a, int element) {
   if (a->used == a->size) {
     a->size *= 2;
@@ -22,12 +24,14 @@ void insertArray(Array *a, int element) {
   a->array[a->used++] = element;
 }
 
+//Deletes array
 void freeArray(Array *a) {
   free(a->array);
   a->array = NULL;
   a->used = a->size = 0;
 }
 
+//Gets item from specified index of array
 int getItem(Array *a, int index){
     if (index > a->size || index < 0){
         return -1;
@@ -35,6 +39,7 @@ int getItem(Array *a, int index){
     return (a->array[index]);
 }
 
+//Sets an index to specific element
 int setElement(Array *a, int index, int element){
     if (index > a->size || index < 0){
         return -1;
@@ -42,6 +47,7 @@ int setElement(Array *a, int index, int element){
     a->array[index] = element;
 }
 
+//Removes value at an index by shifting all values after it to the left
 void removeAtIndex(Array *a, int index){
     for (int i = index; i < a->size; i++){
         a->array[i] = a->array[i+1];
@@ -49,6 +55,7 @@ void removeAtIndex(Array *a, int index){
     a->used -= 1;
 }
 
+//Removes specifc value from array
 bool removeItem(Array *a, int element){
   for (int i = 0; i < a->used; i++){
     if(a->array[i] == element){
@@ -59,6 +66,7 @@ bool removeItem(Array *a, int element){
   return false;
 }
 
+//Returns index of a value
 int indexOfElement(Array *a, int element){
   for (int i = 0; i < a->used; i++){
     if(a->array[i] == element){
@@ -68,6 +76,7 @@ int indexOfElement(Array *a, int element){
   return -1;
 }
 
+//Prints array
 void printArray(Array *a){
   for (int i = 0; i < a->used; i++){
     if (i == a->used - 1){
