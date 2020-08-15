@@ -50,6 +50,7 @@ void InsertAtHead(int key, int data) {
 	newnode->next = head;
 	head = newnode;
     printf("Successfully inserted data: %d with key: %d at the head\n", head->data, head->key);
+    return;
 }
 
 //Inserts a node at tail
@@ -65,6 +66,7 @@ void InsertAtTail(int key, int data) {
     newnode->prev = tail;
 	tail = newnode;
     printf("Successfully inserted data: %d with key: %d at the tail\n", tail->data, tail->key);
+    return;
 }
 
 //Inserts node at specific key
@@ -93,6 +95,7 @@ void insertAfter(int key, int newKey, int data){
         current->next = newnode;
         printf("Successfully inserted data: %d with key: %d\n", newnode->data, newnode->key); 
     }
+    return;
 }
 
 //Deleted node at head
@@ -102,6 +105,7 @@ void deleteAtHead(){
         tail = NULL;
     } else if (isEmpty()){ //list is empty
         printf("List is empty!\n");
+        return;
     } else {
         head->next->prev = NULL;
     }
@@ -109,6 +113,7 @@ void deleteAtHead(){
     printf("(Key, Data) to be deleted: (%d, %d)\n", toDelete->key, toDelete->data);
     free(toDelete);
     printf("Successfully deleted node at head of list!\n");
+    return;
 }
 
 //Deletes node at tail
@@ -118,6 +123,7 @@ void deleteAtTail(){
         head = NULL;
     } else if (isEmpty()){ //list is empty
         printf("List is empty!\n");
+        return;
     } else {
         tail->prev->next = NULL;
     }
@@ -125,6 +131,7 @@ void deleteAtTail(){
     printf("(Key, Data) to be deleted: (%d, %d)\n", toDelete->key, toDelete->data);
     free(toDelete);
     printf("Successfully deleted node at tail of list!\n");
+    return;
 }
 
 //Deletes node at specific key
@@ -151,6 +158,7 @@ void delete(int key){
         free(toDelete);
         printf("Successfully deleted node in list!\n");
     }
+    return;
 }
 
 //Prints all the elements in linked list in forward traversal order
@@ -161,6 +169,7 @@ void printList() {
 		temp = temp->next;
 	}
     printf("\n");
+    return;
 }
 
 //Prints all elements in linked list in reverse traversal order. 
@@ -171,6 +180,7 @@ void reversePrint() {
 		temp = temp->prev;
 	}
     printf("\n");
+    return;
 }
 
 int main() {
