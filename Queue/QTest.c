@@ -81,8 +81,8 @@ int main(){
     enqueue(q, 80);
     enqueue(q, 90);
     enqueue(q, 100);
-    printf("Size of queue is: %d\n", q->size);
     printf("%d dequeued from queue\n",dequeue(q));
+    printf("Size of queue is: %d\n", q->size);
     printf("Front item is %d\n", peek(q));
     printf("Rear item is %d\n", back(q));
     return 0; 
