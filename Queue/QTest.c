@@ -69,6 +69,11 @@ int dequeue(Queue *q){
     return item;
 }
 
+void delete(Queue *q){
+    free(q);
+    printf("Queue Deleted!");
+}
+
 int main(){
     Queue *q = createQueue(2);
     enqueue(q, 10);
@@ -85,5 +90,6 @@ int main(){
     printf("Size of queue is: %d\n", q->size);
     printf("Front item is %d\n", peek(q));
     printf("Rear item is %d\n", back(q));
-    return 0; 
+    delete(q);
+    return 0;
 }
